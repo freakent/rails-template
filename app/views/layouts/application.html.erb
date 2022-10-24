@@ -12,6 +12,7 @@
 
   <body>
   <div id="nav">
+    <%= link_to "Home", :root %> |
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
       <%= link_to "Logout", :logout, data: { turbo_method: :post } %>
