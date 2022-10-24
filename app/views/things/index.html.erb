@@ -2,13 +2,12 @@
 
 <h1>Things</h1>
 
-<div id="things">
+<div class="row" id="things">
+
   <% @things.each do |thing| %>
-    <%= render thing %>
-    <p>
-      <%= link_to "Show this thing", thing %>
-    </p>
+    <div class="col-sm-3">
+      <%= render "card", thing: thing %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New thing", new_thing_path %>
