@@ -95,7 +95,6 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.1)
-    foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -188,6 +187,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -239,12 +241,12 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
-  foreman
   jbuilder
   jsbundling-rails
   puma (~> 5.0)
   rails (~> 7.0.4)
   selenium-webdriver
+  simple_form
   sorcery
   sprockets-rails
   sqlite3 (~> 1.4)
