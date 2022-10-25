@@ -1,6 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 body {
-    min-height: 75rem;
-    padding-top: 4.5rem;
-  }
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
+.card:hover {
+  border-width: 2px;
+}
+
+a {
+  text-decoration: none;
+}

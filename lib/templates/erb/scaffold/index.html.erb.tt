@@ -1,0 +1,25 @@
+<p style="color: green"><%%= notice %></p>
+
+<h1><%= human_name.pluralize %></h1>
+
+<div class="row" id="<%= plural_table_name %>">
+
+  <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+    <div class="col-sm-3">
+
+      <%%= link_to <%= model_resource_name(singular_table_name) %> do %>
+
+        <div class="card" id="<%%= dom_id <%= singular_table_name %> %>">
+          <div class="card-body">
+            <h5 class="card-title"><%%= <%= singular_table_name %>.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%%= <%= singular_table_name %>.description %></h6>
+          </div>
+        </div>
+
+    <%% end %>  
+
+    </div>
+  <%% end %>
+</div>
+
+<%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %> %>

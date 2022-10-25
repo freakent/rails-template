@@ -6,7 +6,18 @@
 
   <% @things.each do |thing| %>
     <div class="col-sm-3">
-      <%= render "card", thing: thing %>
+
+      <%= link_to thing do %>
+
+        <div class="card" id="<%= dom_id thing %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= thing.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= thing.description %></h6>
+          </div>
+        </div>
+
+    <% end %>  
+
     </div>
   <% end %>
 </div>
