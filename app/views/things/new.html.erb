@@ -4,6 +4,8 @@
 
 <br>
 
-<div>
-  <%= link_to "Back to things", things_path %>
-</div>
+<% content_for :toolbar do %>
+  <li class="nav-item">
+    <%= link_to "Things", things_path, class: "nav-link" %>
+  </li>
+<% end %>

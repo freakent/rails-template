@@ -3,8 +3,17 @@
 <%= render @thing %>
 
 <div>
-  <%= link_to "Edit this thing", edit_thing_path(@thing) %> |
-  <%= link_to "Back to things", things_path %>
-
-  <%= button_to "Destroy this thing", @thing, method: :delete %>
 </div>
+
+<% content_for :toolbar do %>
+  <li class="nav-item">
+    <%= link_to "Things", things_path, class: "nav-link" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Edit Thing", edit_thing_path(@thing), class: "nav-link" %> 
+  </li>
+
+  <%= button_to "Delete Thing", @thing, method: :delete, class: "btn btn-dark" %>
+  
+<% end %>
