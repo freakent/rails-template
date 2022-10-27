@@ -1,0 +1,19 @@
+<%%= render @<%= singular_table_name %> %>
+
+<%% content_for :toolbar do %>
+  <li class="nav-item">
+    <%%= link_to "<%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %>, class: "nav-link" %>
+  </li>
+
+  <li class="nav-item">
+    <%%= link_to "Edit <%= human_name.downcase %>", <%= edit_helper(type: :path) %>, class: "nav-link"  %> 
+  </li>
+
+  <%%= button_to "Delete <%= human_name.downcase %>", <%= model_resource_name(prefix: "@") %>, method: :delete, class: "btn btn-link nav-link" %>
+
+  <li class="nav-item">
+    <%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %>, class: "nav-link"  %> 
+  </li>
+
+
+<%% end %>

@@ -22,4 +22,9 @@
   <%% end %>
 </div>
 
-<%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %> %>
+<%% content_for :toolbar do %>
+  <li class="nav-item">
+    <%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %>, class: "nav-link"  %>
+  </li>
+
+<%% end %>

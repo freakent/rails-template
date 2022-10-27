@@ -1,0 +1,14 @@
+<h1>Editing <%= human_name.downcase %></h1>
+
+<%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
+
+<%% content_for :toolbar do %>
+  <li class="nav-item">
+    <%%= link_to "<%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %>, class: "nav-link" %>
+  </li>
+
+  <li class="nav-item">
+    <%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %>, class: "nav-link"  %>
+  </li>
+
+<%% end %>
