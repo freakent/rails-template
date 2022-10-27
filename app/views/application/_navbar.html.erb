@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Home", :root, :class => "navbar-brand" %> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <%= link_to "Things", things_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+        <%= yield :toolbar %>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-md-0">
+      <% if current_user %>
+        <li class="nav-item"><%= link_to "Profile", edit_user_path(current_user.id), class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Logout", :logout, data: { turbo_method: :post }, class: "nav-link" %></li>
+
+      <% else %>
+        <li class="nav-item"><%= link_to "Register", new_user_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Login", :login, class: "nav-link" %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

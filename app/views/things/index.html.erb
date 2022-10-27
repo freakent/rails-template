@@ -22,3 +22,10 @@
   <% end %>
 </div>
 
+
+<% content_for :toolbar do %>
+  <li class="nav-item">
+    <%= link_to "New thing", new_thing_path, class: "nav-link" %>
+  </li>
+
+<% end %>
