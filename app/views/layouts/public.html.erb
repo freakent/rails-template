@@ -2,4 +2,8 @@
     <%= yield %>
 <% end %>
 
+<% content_for :footer do %>
+    <%= render "footer_large" %>
+<% end %>
+
 <%= render template: "layouts/base" %>
