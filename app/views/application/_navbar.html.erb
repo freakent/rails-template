@@ -18,14 +18,20 @@
         <%= yield :toolbar %>
       </ul>
       <ul class="navbar-nav mb-2 mb-md-0">
-      <% if current_user %>
-        <li class="nav-item"><%= link_to "Profile", edit_user_path(current_user.id), class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Logout", :logout, data: { turbo_method: :post }, class: "nav-link" %></li>
-
-      <% else %>
-        <li class="nav-item"><%= link_to "Register", new_user_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Login", :login, class: "nav-link" %></li>
-      <% end %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle fs-5"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><%= link_to "Profile", edit_user_path(current_user.id), class: "dropdown-item" if logged_in? %></li>
+            <li><%= link_to "Logout", :logout, data: { turbo_method: :post }, class: "dropdown-item" if logged_in? %></li>
+            <li><%= link_to "Login", :login, class: "dropdown-item" if !logged_in? %></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
