@@ -1,0 +1,11 @@
+<div class="col-sm-3">
+    <%= link_to action.link do %>
+        <div class="card h-100">
+            <%= image_tag action.image, class: "card-img-top", alt: "Things" if action.image %>
+            <div class="card-body">
+                <h5 class="card-title"><%= action.title %></h5>
+                <p class="card-text"><%= action.description %></p>
+            </div>
+        </div>
+    <% end %>
+</div>
