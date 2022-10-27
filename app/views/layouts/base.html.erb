@@ -19,10 +19,8 @@
     <%= yield :navbar %>
   
     <main class="container">
-      <div>
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
-      </div>
+      <%= render "flash_notice" if flash[:notice] %>      
+      <%= render "flash_alert" if flash[:alert] %>      
   
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
