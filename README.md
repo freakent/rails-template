@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Rails Templates
+Original templates are here:
+Scaffold : https://github.com/rails/rails/tree/8015c2c2cf5c8718449677570f372ceb01318a32/railties/lib/rails/generators/erb/scaffold/templates
