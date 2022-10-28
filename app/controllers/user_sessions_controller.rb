@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
       redirect_back_or_to(:dashboard, notice: 'Login successful')
     else
       flash.now[:alert] = 'Login failed'
-      render action: 'new'
+      render action: 'new', status: :unprocessable_entity
     end
   end
 
