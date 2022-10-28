@@ -8,6 +8,6 @@
   <%- end -%>
   
   <%%= f.button :submit, class: "btn btn-primary" %>
-  <%%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-secondary" %>
+  <%%= link_to "Cancel", :back, class: "btn btn-outline-secondary" %>
 
 <%% end %>
