@@ -1,6 +1,13 @@
-# app/views/user_sessions/new.html.erb
-<h1>Login</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<p><%= link_to '< Back', root_path %></p>
+<div class="row">
+    <div class="col px-5">
+        <h1>Login</h1>
+        <%= render 'form' %>
+        <p class="my-2"><%= link_to 'Forgotten your password?', root_path %></p>
+    </div>
+    <div class="col px-5 border-start">
+        <h1>Register</h1>
+        <p>If you don't have a password you will need to register.<p>
+        <%= link_to "Register here", new_user_path, class: "btn btn-secondary" %>
+    </div>
+</div>
