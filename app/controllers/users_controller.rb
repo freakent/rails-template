@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout "public", except: [:index, :show, :edit]
   before_action :set_user, only: %i[ show edit update destroy ]
   skip_before_action :require_login, only: [:new, :create] # this should only be used if you are allowing users to register themselves. 
 
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.html { redirect_to dashboard_url(@user), notice: "User was successfully created." } #TODO: should redirect to email verification screen
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }

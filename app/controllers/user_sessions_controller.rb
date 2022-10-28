@@ -1,6 +1,7 @@
 # app/controllers/user_sessions_controller.rb
 class UserSessionsController < ApplicationController
 
+  layout "public"
   skip_before_action :require_login, only: [:new, :create]
 
   def create
