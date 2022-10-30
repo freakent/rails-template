@@ -67,4 +67,5 @@ class ThingsController < ApplicationController
     def thing_params
       params.require(:thing).permit(:name, :description)
     end
+    
 end
