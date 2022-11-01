@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get 'dashboard' => "dashboard#index", :as => :dashboard
 
   resources :user_sessions
-  resources :users
+  resources :users do
+    member do
+      get :activate
+    end
+  end
+  
   resources :things
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,8 +1,10 @@
 require "test_helper"
 
 class ThingsControllerTest < ActionDispatch::IntegrationTest
+
   setup do
     @thing = things(:one)
+    login_user(users(:fred))
   end
 
   test "should get index" do

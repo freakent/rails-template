@@ -4,8 +4,15 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+fred: 
+  email: fred@example.com
+  first_name: fred
+  last_name: blogs
+  salt: <%= salt = "asdasdastr4325234324sdfds" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  activation_state: active
+
 # column: value
 #
-two: {}
+#two: {}
 # column: value

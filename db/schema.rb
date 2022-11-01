@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_185341) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_30_090927) do
   create_table "things", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
@@ -26,6 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_185341) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

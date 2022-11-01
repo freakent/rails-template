@@ -57,4 +57,9 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  config.action_mailer.default_url_options = { host: "example.com" }
+  config.action_mailer.default_options = {from: "admin@example.com"}
+
+
+  config.active_support.test_order = :sorted
 end

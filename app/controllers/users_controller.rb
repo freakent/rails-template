@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   layout "public", except: [:index, :show, :edit]
-  before_action :set_user, only: %i[ show edit update destroy ]
-  skip_before_action :require_login, only: [:new, :create] # this should only be used if you are allowing users to register themselves. 
+  before_action :set_user, only: %i[ show edit update destroy]
+  skip_before_action :require_login, only: [:new, :create, :activate] # this should only be used if you are allowing users to register themselves. 
 
   # GET /users or /users.json
   def index
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to dashboard_url(@user), notice: "User was successfully created." } #TODO: should redirect to email verification screen
+        format.html { redirect_to root_url(@user), notice: "User was successfully created." } #TODO: should redirect to email verification screen
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -56,6 +56,17 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def activate
+    puts "Root path", root_path, "id", params[:id]
+    @user = User.load_from_activation_token(params[:id])
+    if @user
+      @user.activate!
+      redirect_to login_url, :notice => 'User was successfully activated. Please log in to continue.'
+    else
+      redirect_to root_path, :alert => "Email confirmation token not accepted."
     end
   end
 
