@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"name": "models",
+			"path": "./app//models"
+		},
+		{
+			"name": "controllers",
+			"path": "./app/controllers"
+		},
+		{
+			"name": "views",
+			"path": "./app//views"
+		},
+		{
+			"name": "mailers",
+			"path": "./app/mailers"
+		},
+		{
+			"name": "test",
+			"path": "./test"
+		},
+		{
+			"name": "config",
+			"path": "./config"
+		},
+		{
+			"name": "Rails Project",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
