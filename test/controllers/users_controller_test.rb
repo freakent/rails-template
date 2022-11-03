@@ -6,6 +6,26 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @superuser = users(:superuser)
   end
 
+  test "should be able to activate with valid token" do
+    @user.setup_activation
+    assert_equal 'pending', @user.activation_state 
+    @user.save
+    get activate_user_url(@user.activation_token)
+    @user.reload
+    assert_equal 'active', @user.activation_state 
+    assert_redirected_to login_url
+  end
+
+  test "should not be able to activate with in-valid token" do
+    @user.setup_activation
+    assert_equal 'pending', @user.activation_state 
+    @user.save
+    get activate_user_url('aaaabbbbccccddddeeeeffff')
+    @user.reload
+    assert_equal 'pending', @user.activation_state 
+    assert_redirected_to root_url
+  end
+
   test "should get index" do
     login_user(@superuser)
     get users_url

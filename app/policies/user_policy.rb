@@ -26,6 +26,10 @@ class UserPolicy < ApplicationPolicy
     create?
   end
 
+  def activate?
+    true
+  end
+  
   def update?
     true
   end

@@ -60,11 +60,11 @@ class UsersController < ApplicationController
   end
 
   def activate
-    puts "Root path", root_path, "id", params[:id]
-    @user = authorise User.load_from_activation_token(params[:id])
+    authorize User
+    @user = User.load_from_activation_token(params[:id])
     if @user
       @user.activate!
-      redirect_to login_url, :notice => 'User was successfully activated. Please log in to continue.'
+      redirect_to login_path, :notice => 'User was successfully activated. Please log in to continue.'
     else
       redirect_to root_path, :alert => "Email confirmation token not accepted."
     end
