@@ -4,6 +4,24 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+superuser: 
+  email: superuser@example.com
+  first_name: Super
+  last_name: User
+  salt: <%= salt = "asdasdastr4325234324sdfds" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  activation_state: active
+  access_level: <%= User.access_levels[:superuser] %>
+
+admin: 
+  email: admin@example.com
+  first_name: Ad
+  last_name: Min
+  salt: <%= salt = "asdasdastr4325234324sdfds" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  activation_state: active
+  access_level: <%= User.access_levels[:admin] %>
+
 fred: 
   email: fred@example.com
   first_name: fred
@@ -11,6 +29,7 @@ fred:
   salt: <%= salt = "asdasdastr4325234324sdfds" %>
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
   activation_state: active
+  access_level: <%= User.access_levels[:user] %>
 
 # column: value
 #

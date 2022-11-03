@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   get 'password_resets/create'
   get 'password_resets/edit'
   get 'password_resets/update'
-  root :to => 'home#index'
+  root :to => 'home#show'
 
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
   post 'logout' => 'user_sessions#destroy', :as => :logout
   
-  get 'dashboard' => "dashboard#index", :as => :dashboard
+  get 'dashboard' => "dashboard#show", :as => :dashboard
 
   resources :user_sessions
   resources :users do

@@ -6,12 +6,12 @@ class UserSessionsController < ApplicationController
 
   # GET /users_sessions/new
   def new
-    @user_session = UserSession.new
+    @user_session = authorize UserSession.new
   end
 
   # POST /user_sessions or /user_sessions.json
   def create
-    @user_session = UserSession.new(user_session_params)
+    @user_session = authorize UserSession.new(user_session_params)
     if @user_session.valid?
       @user = login(@user_session.email, @user_session.password) 
       @user_session.errors.add :base, :invalid, message: "Invalid username or password, login denied" unless @user
@@ -40,6 +40,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
+    authorize UserSession
     logout
     redirect_to(:root, notice: 'Logged out!')
   end

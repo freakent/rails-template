@@ -3,7 +3,7 @@ class ThingsController < ApplicationController
 
   # GET /things or /things.json
   def index
-    @things = Thing.all
+    @things = policy_scope(Thing.all)
   end
 
   # GET /things/1 or /things/1.json
@@ -12,7 +12,7 @@ class ThingsController < ApplicationController
 
   # GET /things/new
   def new
-    @thing = Thing.new
+    @thing = authorize Thing.new
   end
 
   # GET /things/1/edit
@@ -21,7 +21,7 @@ class ThingsController < ApplicationController
 
   # POST /things or /things.json
   def create
-    @thing = Thing.new(thing_params)
+    @thing = authorize Thing.new(thing_params)
 
     respond_to do |format|
       if @thing.save
@@ -60,7 +60,7 @@ class ThingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_thing
-      @thing = Thing.find(params[:id])
+      @thing = authorize Thing.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

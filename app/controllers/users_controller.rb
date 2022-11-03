@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = policy_scope(User.all)
   end
 
   # GET /users/1 or /users/1.json
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = authorize User.new
   end
 
   # GET /users/1/edit
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
+    @user = authorize User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def activate
     puts "Root path", root_path, "id", params[:id]
-    @user = User.load_from_activation_token(params[:id])
+    @user = authorise User.load_from_activation_token(params[:id])
     if @user
       @user.activate!
       redirect_to login_url, :notice => 'User was successfully activated. Please log in to continue.'
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = authorize User.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

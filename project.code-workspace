@@ -2,27 +2,35 @@
 	"folders": [
 		{
 			"name": "models",
-			"path": "./app//models"
+			"path": "app/models"
 		},
 		{
 			"name": "controllers",
-			"path": "./app/controllers"
+			"path": "app/controllers"
 		},
 		{
 			"name": "views",
-			"path": "./app//views"
+			"path": "app/views"
+		},
+		{
+			"name": "policies",
+			"path": "app/policies"
 		},
 		{
 			"name": "mailers",
-			"path": "./app/mailers"
+			"path": "app/mailers"
 		},
 		{
 			"name": "test",
-			"path": "./test"
+			"path": "test"
+		},
+		{
+			"name": "migrations",
+			"path": "db/migrate"
 		},
 		{
 			"name": "config",
-			"path": "./config"
+			"path": "config"
 		},
 		{
 			"name": "Rails Project",

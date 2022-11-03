@@ -75,4 +75,5 @@ group :test do
 end
 
 gem 'sorcery'
+gem 'pundit'
 gem 'simple_form'

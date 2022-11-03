@@ -2,6 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   before_update :setup_activation, if: -> { email_changed? }
   after_update :send_activation_needed_email!, if: -> { previous_changes["email"].present? }
+
+  enum :access_level, { user: 0, admin: 4, superuser: 9 }
   
   validates :email, uniqueness: true, presence: true
   validates :first_name, presence: true

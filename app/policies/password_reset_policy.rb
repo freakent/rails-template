@@ -1,0 +1,2 @@
+class PasswordResetPolicy < AllowAllPolicy
+end

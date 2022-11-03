@@ -1,11 +1,12 @@
 # app/controllers/password_resets_controller.rb
 class PasswordResetsController < ApplicationController
   skip_before_action :require_login
+  before_action :authorize_action
     
   # request password reset.
   # you get here when the user entered their email in the reset password form and submitted it.
   def create 
-    @user = User.find_by_email(params[:email])
+    @user =  User.find_by_email(params[:email])
         
     # This line sends an email to the user with instructions on how to reset their password (a url with a random token)
     @user.deliver_reset_password_instructions! if @user
@@ -45,4 +46,11 @@ class PasswordResetsController < ApplicationController
       render :action => "edit"
     end
   end
+
+  private
+
+    def authorize_action
+      authorize :password_reset
+    end
+    
 end

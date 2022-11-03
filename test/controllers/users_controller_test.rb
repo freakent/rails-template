@@ -3,10 +3,11 @@ require "test_helper"
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:fred)
+    @superuser = users(:superuser)
   end
 
   test "should get index" do
-    login_user(@user)
+    login_user(@superuser)
     get users_url
     assert_response :success
   end
@@ -43,7 +44,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy user" do
-    login_user(@user)
+    login_user(@superuser)
     assert_difference("User.count", -1) do
       delete user_url(@user)
     end
