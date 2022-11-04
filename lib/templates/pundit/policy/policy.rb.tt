@@ -1,40 +1,40 @@
 <% module_namespacing do -%>
-    class <%= class_name %>Policy < ApplicationPolicy
-      class Scope < Scope
-      # def resolve
-      #   scope.all
-      # end
-      end
-    
-    # def show?
-    #   user.superuser?
-    # or
-    #   true
+class <%= class_name %>Policy < ApplicationPolicy
+  class Scope < Scope
+    # def resolve
+    #   scope.all
     # end
-  
-    #  def create?
-    #    # user.superuser?
-    #    true
-    #  end
+  end
     
-    #  def new?
-    #    create?
-    #  end
+  # def show?
+  #   user.superuser?
+  # or
+  #   true
+  # end
   
-    #  def update?
-    #    # user.superuser?
-    #    true
-    #  end
+  #  def create?
+  #    # user.superuser?
+  #    true
+  #  end
+    
+  #  def new?
+  #    create?
+  #  end
   
-    #  def edit?
-    #    update?
-    #  end
+  #  def update?
+  #    # user.superuser?
+  #    true
+  #  end
   
-    #  def destroy?
-    #    # user.superuser?
-    #    true
-    #  end
+  #  def edit?
+  #    update?
+  #  end
+  
+  #  def destroy?
+  #    # user.superuser?
+  #    true
+  #  end
 
-    end
+end
 
-    <% end -%>
+<% end -%>
